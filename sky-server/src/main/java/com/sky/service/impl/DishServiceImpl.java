@@ -118,7 +118,6 @@ public class DishServiceImpl implements DishService {
     public void updateWithFlavor(DishDTO dishDTO) {
         Dish dish = new Dish();
         BeanUtils.copyProperties(dishDTO, dish);
-
         dishMapper.update(dish);
 
         dishFlavorMapper.deleteByDishId(dishDTO.getId());

@@ -38,4 +38,19 @@
         ORDER BY s.update_time DESC
     </select>
 
+    <update id="update" parameterType="com.sky.entity.Setmeal">
+        UPDATE setmeal
+        SET
+            category_id = #{categoryId},
+            name = #{name},
+            price = #{price},
+            status = #{status},
+            description = #{description},
+            image = #{image},
+            update_time = #{updateTime},
+            update_user = #{updateUser}
+        WHERE id = #{id}
+    </update>
+
+
 </mapper>
