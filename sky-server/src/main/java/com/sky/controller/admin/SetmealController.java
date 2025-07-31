@@ -1,10 +1,11 @@
-package com.sky.controller.admin.Common;
+package com.sky.controller.admin;
 
 
-import com.sky.dto.DishDTO;
+import com.sky.dto.SetmealDTO;
 import com.sky.result.Result;
-import com.sky.service.DishService;
+import com.sky.service.SetmealService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,25 +14,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 菜品管理
+ * 套餐管理
  * */
 @RestController
-@RequestMapping("admin/dish")
-@Api(tags = "菜品管理")
+@RequestMapping("/admin/setmeal")
+@Api(tags = "套餐管理")
 @Slf4j
-public class DishController {
+public class SetmealController {
     @Autowired
-    private DishService dishService;
+    private SetmealService setmealService;
 
     /**
-     * 新增菜品
-     * @param dishDTO
+     * 新增套餐
+     * @param setmealDTO
      * @return
      * */
     @PostMapping
-    public Result<String> save(@RequestBody DishDTO dishDTO) {
-        log.info("新增菜品：{}", dishDTO);
-        dishService.saveWithFlavor(dishDTO);
+    @ApiOperation("新增套餐")
+    public Result save (@RequestBody SetmealDTO setmealDTO) {
+        log.info("新增套餐：{}", setmealDTO);
+        setmealService.saveWithDish(setmealDTO);
         return Result.success();
     }
+
 }
