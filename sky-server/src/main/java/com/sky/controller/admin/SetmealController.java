@@ -92,4 +92,18 @@ public class SetmealController {
         return Result.success();
     }
 
+    /**
+     * 起售、停售套餐
+     * @param status
+     * @oaram id
+     * @return
+     * */
+    @PostMapping("/status/{status}")
+    @ApiOperation("修改套餐起售/停售状态")
+    public Result updateStatus(@PathVariable Integer status, @RequestParam Long id) {
+        setmealService.updateStatusById(id, status);
+        return Result.success();
+    }
+
+
 }

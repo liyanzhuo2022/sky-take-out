@@ -48,5 +48,11 @@
         WHERE category_id = #{categoryId}
     </select>
 
+    <select id="getBySetmealId" parameterType="long" resultType="com.sky.entity.Dish">
+        SELECT d.*
+        FROM dish d
+                 JOIN setmeal_dish sd ON d.id = sd.dish_id
+        WHERE sd.setmeal_id = #{setmealId}
+    </select>
 
 </mapper>
