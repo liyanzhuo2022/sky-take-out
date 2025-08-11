@@ -1,0 +1,13 @@
+sky:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: sky_take_out
+    username: YOUR_DB_USERNAME
+    password: YOUR_DB_PASSWORD
+  redis:
+    host: localhost
+    port: 6379
+    password: YOUR_REDIS_PASSWORD
+    database: 10
