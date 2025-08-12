@@ -6,6 +6,12 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper {
+    /**
+     * 根据id获取用户信息
+     * @param id
+     * @return
+     */
+    User getById(String id);
 
     /**
      * 根据openid查询用户
